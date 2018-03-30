@@ -5,8 +5,7 @@ int main() {
     int num = 0, num1 = 0, cnt = 0, arr[7] = {0}, arr1[7] = {0};
     srand((unsigned)time(0));
     printf("This is a game about the lottery of the double chromosphere.\n");
-    printf("Pick your seven balls. To do this, enter the numbers of each ball from your keyboard instead of picking. Enter the six non-repetitive numbers of the red ball which is from 1 to 33 
-    and then enter the last number of the blue ball which is from 1 to 16.\n");
+    printf("Pick your seven balls. To do this, enter the numbers of each ball from your keyboard instead of picking. Enter the six non-repetitive numbers of the red ball which is from 1 to 33 and then enter the last number of the blue ball which is from 1 to 16.\n");
     printf("Enter your six numbers of the red ball from your keyboard, end with 'enter' to separate each number: ");
     num = 0;
     while (num <= 5) {
@@ -26,7 +25,7 @@ int main() {
         num++;
     }
     printf("Enter your last number of the blue ball from your keyboard, end with 'enter': ");
-    scanf("%d", &arr1[6];
+    scanf("%d", &arr1[6]);
     //Get the numbers from players.
     for (num = 0;num < 6;num++) {
         arr[num] = rand() % 33 + 1;

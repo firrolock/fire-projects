@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main() {
+    int num = 0, num1 = 0, cnt = 0, arr[7] = {0}, arr1[7] = {0};
+    srand((unsigned)time(0));
+    printf("This is a game about the lottery of the double chromosphere.\n");
+    printf("Pick your seven balls. To do this, enter the numbers of each ball from your keyboard instead of picking. Enter the six non-repetitive numbers of the red ball which is from 1 to 33 and then enter the last number of the blue ball which is from 1 to 16.\n");
+    printf("Enter your six numbers of the red ball from your keyboard, end with 'enter' to separate each number: ");
+    num = 0;
+    while (num <= 5) {
+        scanf("%d", &arr1[num]);
+        for (num1 = 0;num1 <= num - 1;num1++) {
+            if (arr1[num] == arr1[num1]) {
+                printf("Enter your last number again: ");
+                break;
+            }
+        }
+        if (num != num1) {
+            num--;
+        }
+        else {
+            printf("Enter your next number: ");
+        }
+        num++;
+    }
+    printf("Enter your last number of the blue ball from your keyboard, end with 'enter': ");
+    scanf("%d", &arr1[6]);
+    //Get the numbers from players.
+    for (num = 0;num < 6;num++) {
+        arr[num] = rand() % 33 + 1;
+        for (num1 = 0;num1 < num;num1++) {
+            if (arr[num] == arr[num1]) {
+                num--;
+                break;
+            }
+        }
+    }
+    arr[6] = rand() % 16 + 1;
+    //Build a lottery of the double chromosphere.
+    cnt = 0;
+    for (num = 0;num <= 5;num++) {
+        for (num1 = 0;num1 <= 5;num1++) {
+            if (arr1[num] == arr[num1]) {
+                cnt++;
+                break;
+            }
+        }
+    }
+    if (arr1[6] == arr[6]) {
+        printf("You got %d of the red ball right and you won the blue ball.\n", cnt);
+    }
+    else {
+        printf("You got %d of the red ball right and you lost the blue ball.\n", cnt);
+    }
+    //Compare the lottery player entered from the lottery computer built.
+    printf("the lottery of the double chromosphere is shown as below: \n");
+    for (num = 0;num <= 6;num++) {
+        printf("%d ", arr[num]);
+    }
+    printf("\nThe six numbers are numbers on the red ball and the last number is the number on the blue ball which is from left to right.\n");
+    return 0;
+}
